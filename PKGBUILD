@@ -22,7 +22,7 @@ prepare(){
 	cd "${pkgname}"
 	
 	sed -i "s:base:${pkgbase}:g" Makefile
-	sed -i "s:vpnd:${vnpd}:g" Makefile
+	sed -i "s:vpnd:${vpnd}:g" Makefile
 	name_cap=( "${pkgbase[*]^}" )
 	exist=$(find -maxdepth 1 -name 'base-*' -type d)
 	exist1=$(find -maxdepth 1 -name 'vpnd-*' -type d)
