@@ -30,6 +30,7 @@ prepare(){
 		if [[ -d bundle-base ]]; then
 			find -type d -name 'bundle-base' | rename base "${name_cap}" bundle-base 
 			sed -i "s:base:${pkgbase}:g" bundle-*/contents
+			sed -i "s:vpnd:${vpnd}:g" bundle-*/contents
 		fi
 		find -type d -name 'base-*' | rename base "${pkgbase}" * 
 		for i in *-log/logd *-log/run; do
