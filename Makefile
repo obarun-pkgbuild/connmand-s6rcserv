@@ -19,7 +19,7 @@ longrun_user = $$(find user/rc *-longrun -mindepth 2 -type f)
 log_user = $$(find user/rc *-log -mindepth 2 -type f)
 
 FILES = $$(find base-* user -maxdepth 3 -type f)
-FILES1 = $$(find one-* -maxdepth 3 -type f)
+FILES1 = $$(find vpnd-* -maxdepth 3 -type f)
 
 LOGD = $$(find -maxdepth 2 -type f -name logd)
 LOGD_USER = $$(find user/rc -maxdepth 2 -type f -name logd)
@@ -43,7 +43,7 @@ install:
 			install -Dm 0644 $$i $(DESTDIR)/etc/s6-serv/available/rc/$$i; \
 		done \
 	fi
-	if $$(find -name one -type d); then \
+	if $$(find -name vpnd -type d); then \
 		for i in $(longrun);do \
 			install -Dm 0644 $$i $(DESTDIR)/etc/s6-serv/available/rc/$$i; \
 		done \
