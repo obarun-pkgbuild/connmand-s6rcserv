@@ -1,0 +1,3 @@
+#!@BINDIR_EXECLINE@/execlineb -P
+fdmove -c 2 1
+/usr/bin/connmand --config=/etc/connman/main.conf -n --nobacktrace --nodnsproxy
