@@ -1,11 +1,11 @@
 # Maintainer: Eric Vidal <eric@obarun.org>
 
 pkgbase=connmand
-base=connman-vpnd
+one=connman-vpnd
 _depends=connman
 pkgname="${pkgbase}"-s6rcserv
 pkgver=0.1
-pkgrel=1
+pkgrel=2
 pkgdesc="${pkgbase} service for s6-rc"
 arch=(x86_64)
 license=('ISC')
@@ -22,7 +22,7 @@ prepare(){
 	cd "${pkgname}"
 	
 	sed -i "s:base:${pkgbase}:g" Makefile
-	sed -i "s:base1:${base}:g" Makefile
+	sed -i "s:one:${one}:g" Makefile
 	name_cap=( "${pkgbase[*]^}" )
 	exist=$(find -maxdepth 1 -name 'base-*' -type d)
 	exist1=$(find -maxdepth 1 -name 'base1-*' -type d)
@@ -36,7 +36,7 @@ prepare(){
 			sed -i "s:base:${pkgbase}:g" $i 
 		done
 	fi
-	find -type d -name 'base1-*' | rename base "${base}" * 
+	find -type d -name 'one-*' | rename base "${one}" * 
 	# user dir
 	if [[ -d user ]]; then
 		if [[ -d user/rc/bundle-base ]]; then
