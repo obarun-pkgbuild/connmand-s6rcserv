@@ -36,7 +36,7 @@ prepare(){
 			sed -i "s:base:${pkgbase}:g" $i 
 		done
 	fi
-	find -type d -name 'one-*' | rename base "${one}" * 
+	find -type d -name 'one-*' | rename one "${one}" * 
 	# user dir
 	if [[ -d user ]]; then
 		if [[ -d user/rc/bundle-base ]]; then
