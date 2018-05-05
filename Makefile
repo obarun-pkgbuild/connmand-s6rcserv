@@ -18,8 +18,7 @@ oneshot_user = $$(find user/rc *-oneshot -mindepth 2 -type f)
 longrun_user = $$(find user/rc *-longrun -mindepth 2 -type f)
 log_user = $$(find user/rc *-log -mindepth 2 -type f)
 
-FILES = $$(find base-* user -maxdepth 3 -type f)
-FILES1 = $$(find vpnd-* -maxdepth 3 -type f)
+FILES = $$(find base-* user vpnd-* -maxdepth 3 -type f)
 
 LOGD = $$(find -maxdepth 2 -type f -name logd)
 LOGD_USER = $$(find user/rc -maxdepth 2 -type f -name logd)
@@ -27,7 +26,7 @@ LOGD_USER = $$(find user/rc -maxdepth 2 -type f -name logd)
 
 install: 
 	
-	for i in $(FILES) $(FILES1); do \
+	for i in $(FILES); do \
 		sed -i 's,@BINDIR_EXECLINE@,$(BINDIR_EXECLINE),' $$i; \
 		sed -i 's,@BINDIR@,$(BINDIR),' $$i; \
 	done 
